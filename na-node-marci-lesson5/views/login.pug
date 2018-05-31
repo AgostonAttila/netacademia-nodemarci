@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .card.card-login
+    .card-header #{title}
+    .card-body
+      if fail
+        .alert.alert-danger 
+          strong Sikertelen belépés!
+      form(method='post' action='/login')
+        .form-group
+          label(for="email") Email
+          input#email.form-control(type="email", name="email")
+        .form-group
+          label(for="password") Jelszó
+          input#password.form-control(type="password", name="password")
+        +button('primary', 'belépés')

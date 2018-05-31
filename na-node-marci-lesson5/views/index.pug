@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .jumbotron
+    h1.display-4= title
+    p.lead
+      | Tudd meg, mennyi a fizetés a szakmádban!
+    hr.my-4
+    p
+      | Válaszd ki a területet ahol dolgozol és máris láthatod a fizetéseket.
+    .row
+      .col-12
+        .input-group.mb-3
+          select.form-control.form-control-lg(name='profession')
+            each prof in profs
+              option(value=prof.id)= prof.name
+          button.btn.btn-primary.btn-lg.find-profession-btn mehet
+
+  ul.list-group.salary-list(style="display: none;")
+    li.list-group-item.active Fizetések listája
+    
+  .hidden(style="display: none;")
+    li.list-group-item.template template
+    
+
+
+
+block scripts
+  script(src="/javascripts/index.js") 
